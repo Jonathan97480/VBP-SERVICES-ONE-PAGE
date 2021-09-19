@@ -1,0 +1,661 @@
+/* 
+  @Author : Jonathan Gauvin 
+    @Date : 19/09/2021
+    Page created for the company VBP DEPOT SERVICES to be integrated into a Wordpresse
+ */
+
+/* FONT LOAD */
+
+@font-face {
+    font-family: JockeyOne;
+    src: url("../font/JockeyOne/JockeyOne-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Quantico;
+    src: url("../font/Quantico/Quantico-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Quantico-bold;
+    src: url("../font/Quantico/Quantico-Bold.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../font/Montserrat/Montserrat-Light.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat-bold;
+    src: url("../font/Montserrat/Montserrat-Bold.ttf");
+    font-display: swap;
+}
+
+/*
+Defining basic attributes for HTML and the body
+  */
+
+body, html {
+    display: block;
+    position: relative;
+    max-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Definition of CSS variables */
+
+body {
+    --color-primary: #D84E4A;
+    --color-btn: #DFAA46;
+    --color-card: #6A88D0;
+    --background-color: #231E1E;
+    --text-color-primary: white;
+    --text-color-segondary: black;
+    --btn-color-primary: #DFAA46;
+    background-color: var(--background-color);
+}
+
+/* Changing the attributes of the a tag */
+
+a {
+    text-decoration: none;
+    color: var(--text-color-segondary);
+}
+
+span {
+    display: inline-block;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    transform: translateX(-20px);
+}
+
+/* load Icon */
+
+.facebook-icon::after {
+    content: url(../svg/facebook.svg);
+}
+
+.linkedin-icon::after {
+    content: url(../svg/linkedin.svg);
+}
+
+.tablette-icon-menu::after {
+    content: url(../svg/menu.svg);
+}
+
+/* START HEADER ZONE */
+
+header {
+    max-width: 100vw;
+    padding: 0 25px 0 25px;
+    box-shadow: 0 13px 7px rgba(0, 0, 0, 0.48);
+    background-color: white;
+}
+
+.header-pc {
+    display: flex;
+    max-width: 100vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-pc ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.header-logo {
+    margin-top: 5px;
+}
+
+.header-pc ul li {
+    margin: 0 13px 0 13px;
+    font-family: Montserrat;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.header-menu li:hover {
+    transform: translateY(-5px);
+    text-decoration: underline;
+}
+
+/* Tablette Header zone */
+
+@media (min-width:700px) and (max-width:1000px) {
+    .header-menu {
+        display: none!important;
+    }
+    .socials-icon {
+        display: inline-block;
+    }
+    .tablette-icon-menu {
+        display: inline-block;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    .tablette {
+        display: inline-block;
+    }
+}
+
+/* Mobile Header zone */
+
+@media (min-width:200px) and (max-width:700px) {
+    .header-menu {
+        display: none!important;
+    }
+    .header-mobile {
+        padding: 0 15px 0 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        background-color: var(--background-color);
+    }
+    .icon-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        filter: invert(100%) sepia(7%) saturate(1%) hue-rotate(166deg) brightness(101%) contrast(101%);
+    }
+    .tablette-icon-menu {
+        display: inline-block;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    .tablette {
+        display: none;
+    }
+    .socials-icon {
+        display: none;
+    }
+    .mobile {
+        margin-right: 25px;
+    }
+}
+
+/* END HEADER ZONE */
+
+/* START MOBILE AND TABLETTE MENU ZONE */
+
+.tablette, .mobile, .header-mobile {
+    display: none;
+}
+
+.content-mobile-menu {
+    display: none;
+    text-align: center;
+}
+
+.mobile-menu-active {
+    display: block!important;
+}
+
+.mobile-menu {
+    list-style: none;
+}
+
+.mobile-menu li {
+    margin: 10px 0 10px 0;
+}
+
+@media (min-width:700px) and (max-width:1000px) {}
+
+@media (min-width:200px) and (max-width:700px) {}
+
+/* END MOBILE AND TABLETTE MENU ZONE */
+
+/* START CONTENT ZONE */
+
+.content {
+    display: block;
+    max-width: 1440px;
+    min-height: calc(100vh - 146);
+    margin: auto;
+    background-color: var(--background-color);
+}
+
+.hero-home h1, .presentation p, .info-block div p, .info-card {
+    font-family: JockeyOne;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0.045em;
+}
+
+.hero-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url(../img/hero-picture.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 441px;
+}
+
+.hero-home h1 {
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-primary);
+    text-shadow: 0px 0px 4px #000000;
+}
+
+.center-content, .info-block span, .form-block h3, .btn, .contact h3, .organigramme h4, .name-card, .depotage h5, .form-depotage input, .form-depotage textarea, .form-depotage select {
+    font-family: Montserrat-bold;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.045em;
+}
+
+.presentation h2 {
+    display: block;
+    margin: 0 25px 0 25px;
+    font-size: 44px;
+    line-height: 138.69%;
+    color: var(--text-color-primary);
+}
+
+.presentation p {
+    font-size: 23px;
+    line-height: 138.69%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-primary);
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 830px;
+    max-height: 369px;
+    padding: 48px 73px 48px 73px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.info-block span {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 138.69%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-primary);
+}
+
+.info-block div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-block div p {
+    font-size: 12px;
+    line-height: 138.69%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-primary);
+    max-width: 334px;
+    text-align: justify;
+}
+
+.info-block div img {
+    width: 214px;
+    height: 214px;
+    margin-left: 15px;
+}
+
+/* Formulaire de contact */
+
+.form-block {
+    display: flex;
+    width: 1050px;
+    height: 974px;
+    flex-direction: column;
+    margin: auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 15px 50px 15px 50px;
+}
+
+.contact-form input {
+    height: 59px;
+    width: 80%;
+    border-radius: 15px;
+    margin-bottom: 24.5px;
+    text-indent: 15px;
+}
+
+.contact-form textarea {
+    border-radius: 15px;
+    height: 285px;
+    width: 80%;
+    text-indent: 15px;
+}
+
+.form-block h3 {
+    font-size: 64px;
+    line-height: 138.69%;
+    display: flex;
+    align-items: center;
+    text-indent: 19px;
+    color: var(--text-color-primary);
+}
+
+.form-back-pic {
+    width: 50%;
+    height: 714px;
+    background-image: url(../img/contact-img.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn {
+    display: inline-block;
+    height: 66px;
+    border-radius: 25px;
+    background-color: var(--btn-color-primary);
+    width: 314px;
+    margin-top: 49px;
+    font-size: 31px;
+    line-height: 138.69%;
+    text-indent: 19px;
+    color: var(--text-color-primary);
+}
+
+.contact h3 {
+    font-size: 80px;
+    line-height: 138.69%;
+    text-indent: 19px;
+    color: var(--text-color-primary);
+}
+
+.contact {
+    margin-bottom: 80px;
+}
+
+.contact-presentation {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    /* justify-content: center; */
+}
+
+/* organigramme */
+
+.organigramme h4 {
+    font-size: 48px;
+    line-height: 59px;
+    color: var(--text-color-primary);
+}
+
+.block-card {
+    max-width: 1032px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: inline-block;
+    max-width: 328px;
+    height: 139px;
+    margin: 0 15px 0 15px;
+}
+
+.name-card, .info-card {
+    display: inline-block;
+    background-color: var(--color-card);
+    width: 250px;
+    text-align: center;
+}
+
+.name-card {
+    max-height: 26px;
+    margin-bottom: 5px;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 14px;
+    line-height: 20px;
+    align-items: center;
+    color: var(--text-color-primary);
+}
+
+.name-card {
+    height: 108px;
+    font-size: 14px;
+    line-height: 25px;
+    color: var(--text-color-primary);
+}
+
+.avatar-card {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50% 50%;
+    border: solid 1px black;
+    margin: 0 5px 0 5px;
+}
+
+/* form depotage */
+
+.depotage h5 {
+    font-size: 50px;
+    line-height: 138.69%;
+    color: var(--text-color-primary);
+}
+
+.form-depotage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-depotage input, .form-depotage textarea, .form-depotage select {
+    height: 60px;
+    border-radius: 5px;
+    text-indent: 15px;
+    font-size: 12px;
+    line-height: 17px;
+    display: flex;
+}
+
+.form-depotage select {
+    width: 25%;
+    min-width: 300px;
+}
+
+.form-depotage {
+    margin-bottom: 190px;
+}
+
+.form-depotage input, .form-depotage textarea {
+    width: 80%;
+    margin: 8px 0 8px 0;
+}
+
+.form-depotage textarea {
+    height: 382px;
+}
+
+/* Tablette Content Zone */
+
+@media (max-width:1000px) {
+    .form-back-pic {
+        display: none;
+    }
+    .form-block {
+        width: 100%;
+        display: block;
+    }
+    .form-block h3 {
+        display: block;
+        font-size: 45px;
+        text-align: center;
+    }
+    .btn {
+        margin: auto;
+        margin-top: 50px;
+    }
+    .block-card {
+        flex-direction: column;
+    }
+    .contact-form {
+        width: 80%;
+        margin: auto;
+    }
+    .contact h3 {
+        font-size: 50px;
+    }
+}
+
+/* Mobile Content Zone */
+
+@media (min-width:200px) and (max-width:700px) {
+    .hero-home {
+        background-image: url(../Assets/img/hero-picture-mobile.webp);
+    }
+    .info-block {
+        width: 300px;
+        max-height: none;
+        padding: 0;
+        margin: auto;
+    }
+    .info-block span {
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+    }
+    .info-block div span img {
+        display: block;
+        width: 300px;
+        height: auto;
+    }
+    .info-block div {
+        flex-direction: column;
+        width: 95vw;
+        margin: auto;
+    }
+    .info-block div p {
+        max-width: 300px;
+        text-align: justify;
+    }
+    .left, .right {
+        float: none
+    }
+    .presentation h2 {
+        font-size: 36px;
+    }
+    .presentation p {
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+    .btn {
+        display: block;
+        width: 80%;
+    }
+    .organigramme h4 {
+        font-size: 30px;
+    }
+    .card {
+        width: 300px;
+        margin: auto;
+    }
+    .name-card, .info-card {
+        width: 300px!important;
+    }
+    .block-card {
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-home h1 {
+        font-size: 43px;
+    }
+    .form-block h3 {
+        font-size: 43px;
+        margin-right: 15px;
+    }
+    .contact h3 {
+        font-size: 30px;
+    }
+    .info-block div img {
+        margin-left: 0px;
+    }
+}
+
+/* END CONTENT ZONE */
+
+/* START FOOTER ZONE */
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0 15px 0 15px;
+}
+
+/* Tablette Footer Zone */
+
+@media (min-width:700px) and (max-width:1000px) {}
+
+/* Mobile Footer Zone */
+
+@media (min-width:200px) and (max-width:700px) {
+    footer {
+        display: flex;
+        height: 242px;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: white;
+    }
+}
+
+/* END FOOTER ZONE */
