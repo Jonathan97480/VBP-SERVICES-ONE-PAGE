@@ -51,14 +51,25 @@
                 <li><a href="/vdp/#organigramme">Organigramme</a> </li>
 
                 <li><a href="#depotage">Demande de dépotage</a> </li>
+                <?php if (!is_user_logged_in()) : ?>
+                    <li> <a href="page-de-connexion/">Connexion</a> </li>
+                <?php else : ?>
 
-                <li> <a href="page-de-connexion/">Connexion</a> </li>
-                <li class="menu2">Option <ul>
-                        <li>Organigramme</li>
-                        <li>blog</li>
-                        <li>Promotionelle</li>
-                    </ul>
-                </li>
+                    <li class="menu2">Option
+                        <?php
+                        wp_nav_menu([
+                            'theme_location' => 'header-menu',
+                            'container' => 'ul',
+                            'menu_class' => 'option',
+                            'after' => '</span>',
+                            'before' => '<span class="m-bg">'
+
+                        ]);
+                        ?>
+
+
+                    </li>
+                <?php endif ?>
             </ul>
             <span class="socials-icon">
                 <a href="<?= url_facebook() ?>"><span class="facebook-icon" id="Reseaux_facebook_pc"></span></a>
@@ -88,15 +99,19 @@
             <hr>
             <li><a href="/vdp/#depotage">Demande de dépotage</a> </li>
             <hr>
-            <li> <a href="page-de-connexion">Connexion</a></li>
-            <span class="menu2">
+            <?php if (!is_user_logged_in()) : ?>
+                <li> <a href="page-de-connexion">Connexion</a></li>
+            <?php else : ?>
+                <?=
+                wp_nav_menu([
+                    'theme_location' => 'header-menu',
+                    'container' => 'ul',
+                    'menu_class' => 'menu2',
+                    'link_after' => '<hr>'
 
-                <hr>
-                <li>Organigramme</li>
-                <hr>
-                <li>blog</li>
-                <hr>
-                <li>Promotionelle</li>
-            </span>
+                ])
+                ?>
+
+            <?php endif ?>
         </ul>
     </div>
